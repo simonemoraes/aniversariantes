@@ -115,6 +115,23 @@ $('#btn_buscar').click(function () {
                 $('#dt_nasc').html(item.dt_nasc);
                 $('#convenio').html(item.convenio);
             });
+            
+            /* Exemplo a testar e aprimorar            
+             
+            alert("entrei");
+
+            var retorno = JSON.parse(data);
+
+            var lista = new Array();
+            var cont = 0;
+            while (cont < retorno.length) {
+                lista[cont] = retorno[cont].id;
+                //alert(lista[cont]);
+                document.write(lista[cont]);
+                cont++;
+            }*/
+            
+            
 
         } else {
             alert("Não existe aniversariante para este mes especifico!");
