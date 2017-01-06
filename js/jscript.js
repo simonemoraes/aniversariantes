@@ -93,7 +93,7 @@ $('#tabelaClientes tbody tr').each(function () {
 
 
 
-
+/* Popula tabela com aniversariantes do mes */
 $('#btn_buscar').click(function () {
 
     var mes = $('#select option:selected').val();
