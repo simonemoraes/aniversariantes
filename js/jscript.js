@@ -97,41 +97,32 @@ $('#tabelaClientes tbody tr').each(function () {
 $('#btn_buscar').click(function () {
 
     var mes = $('#select option:selected').val();
-    alert('Pagina Inicial: ' + mes);
+    //alert('Pagina Inicial: ' + mes);
+
+    console.log(mes);
 
     var url = 'http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/teste';
 
     $.post(url, {
         mes: mes
     }, function (data, status) {
-        alert(status);
+        //alert(status);
 
         var dados = JSON.parse(data);
+        console.log(data);
+        console.log(dados);
+        var html_td = "";
 
         if (dados !== 'vazio') {
             $.each(dados, function (i, item) {
-                $('#id').html(item.id);
-                $('#nome').html(item.nome);
-                $('#dt_nasc').html(item.dt_nasc);
-                $('#convenio').html(item.convenio);
+                html_td = html_td + "<tr><td class='align_td'>" + item.id + "</td>";
+                html_td = html_td + "<td class='align_td'>" + item.nome + "</td>";
+                html_td = html_td + "<td class='align_td'>" + item.dt_nasc + "</td>";
+                html_td = html_td + "<td class='align_td'>" + item.convenio + "</td></tr>";
             });
-            
-            /* Exemplo a testar e aprimorar            
-             
-            alert("entrei");
 
-            var retorno = JSON.parse(data);
-
-            var lista = new Array();
-            var cont = 0;
-            while (cont < retorno.length) {
-                lista[cont] = retorno[cont].id;
-                //alert(lista[cont]);
-                document.write(lista[cont]);
-                cont++;
-            }*/
-            
-            
+            $('#lista_aniver').html(html_td);
+            console.log(html_td);
 
         } else {
             alert("Não existe aniversariante para este mes especifico!");

@@ -97,6 +97,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
         }
     }
 
+    /* função usada somente para teste*/
     public function teste() {
         $mes = $_POST['mes'];
         

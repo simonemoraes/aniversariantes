@@ -55,13 +55,8 @@
                                 <th class="text-center">Convenio</th> 
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align_td" id="id"></td>
-                                <td class="align_td" id="nome"></td>
-                                <td class="align_td" id="dt_nasc"></td>
-                                <td class="align_td" id="convenio"></td>
-                            </tr>
+                        <tbody id="lista_aniver">
+                           
 
                         </tbody>
 
