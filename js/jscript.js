@@ -101,7 +101,7 @@ $('#btn_buscar').click(function () {
 
     console.log(mes);
 
-    var url = 'http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/teste';
+    var url = 'http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/relatorio';
 
     $.post(url, {
         mes: mes
@@ -125,6 +125,7 @@ $('#btn_buscar').click(function () {
             console.log(html_td);
 
         } else {
+            window.location.reload();
             alert("Não existe aniversariante para este mes especifico!");
         }
     });

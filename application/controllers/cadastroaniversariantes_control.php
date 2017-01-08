@@ -78,38 +78,35 @@ class Cadastroaniversariantes_control extends CI_Controller {
 
     function relatorio() {
         $listaAniversariante = '';
-        $mes = '';
-        $meses = $this->input->post('meses');
-
-        for ($i = 0; $i < count($meses); $i++) {
-            $mes = $meses[$i];
-        }
+        $mes = $this->input->post('mes');
 
         if ($mes != '0' && $mes != '') {
+           
             $listaAniversariante = $this->cadastro_de_aniversariantes_model->listaMes($mes);
-            
-            $dados = array("aniversariantes" => $listaAniversariante);
 
-            $this->load->view('cadastro/relatorio', $dados);
-        }else{
-            $dados = array("aniversariantes" => $listaAniversariante);
-            $this->load->view('cadastro/relatorio', $dados);
+            if ($listaAniversariante != '') {
+                echo json_encode($listaAniversariante);
+            } else {
+                echo json_encode('vazio');
+            }
+            
+        } else {
+            $this->load->view('cadastro/relatorio');
         }
     }
 
-    /* função usada somente para teste*/
+    /* função usada somente para teste */
+
     public function teste() {
         $mes = $_POST['mes'];
-        
+
         $listaAniversariante = $this->cadastro_de_aniversariantes_model->listaMes($mes);
-        
-        if($listaAniversariante != ''){
+
+        if ($listaAniversariante != '') {
             echo json_encode($listaAniversariante);
-        }else{
+        } else {
             echo json_encode('vazio');
         }
-       
-        
     }
 
     private function listarTodos() {

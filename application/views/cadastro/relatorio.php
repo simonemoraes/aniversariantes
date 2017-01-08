@@ -1,5 +1,4 @@
 <?php include 'cabecalho.php' ?>
-
 <div style="margin-top: 150px;" class="container">
 
     <div class="row">
@@ -13,13 +12,13 @@
                     <h4><strong>Relatório de aniversariantes por mes</strong></h4>
                 </div>
                 <div class="panel-body">
-                    <form id="form_cadastro" method="POST" action="<?= base_url('index.php/cadastroaniversariantes_control/relatorio') ?>">
+                    <form id="form_cadastro" method="POST" onsubmit="return false;">
 
                         <div class="form-group">
                             <div class="row">
-                               
+
                                 <div class="col-md-10">
-                                    <select class="form-control" name="meses[]" id="select_painel">
+                                    <select class="form-control" name="meses[]" id="select">
                                         <option value="0">Selecione...</option>
                                         <option value="1">Janeiro</option>
                                         <option value="2">Fevereiro</option>
@@ -37,8 +36,8 @@
                                 </div>
 
                                 <div class="col-md-2 col-sm-6 col-xs-6">
-                                    <button style="width: 100%;" class="btn btn-primary"  id="btn_pesquisar">
-                                        <i class="fa fa-floppy-o" aria-hidden="true"></i> &nbsp;Pesquisar</button>
+                                    <button style="width: 100%;" class="btn btn-primary"  id="btn_buscar">
+                                        <i class="fa fa-floppy-o" aria-hidden="true"></i> &nbsp;Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -56,25 +55,8 @@
                                 <th class="text-center">Convenio</th> 
                             </tr>
                         </thead>
-                        <tbody>
-
-                            <?php if ($aniversariantes == NULL) : ?>
-                                <tr>
-                                    <td id="id"></td>
-                                    <td id="nome"></td>
-                                    <td id="dt_nasc"></td>
-                                    <td id="convenio"></td>
-                                </tr>
-                            <?php else : ?>
-                                <?php foreach ($aniversariantes as $value): ?>
-                                    <tr>
-                                        <td class="align_td" id="id"><?= $value['id'] ?></td>
-                                        <td class="align_td" id="nome"><?= $value['nome'] ?></td>
-                                        <td class="align_td" id="dt_nasc"><?= dataMysqlParaPtBr($value['dt_nasc']) ?></td>
-                                        <td class="align_td" id="convenio"><?= $value['convenio'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                        <tbody id="lista_aniver">
+                           
 
                         </tbody>
 
@@ -94,10 +76,10 @@
 
 </div>
 
-<script src="<?= base_url(js / bootstrap . min . js) ?>"></script>
 
+
+<script src="<?= base_url("js/bootstrap.min.js") ?>"></script>
 <script src="<?= base_url("js/jquery-1.12.4.min.js") ?>"></script>
-<script src="<?= base_url("js/jquery-1.12.0-ui.js") ?>"></script>
 <script src="<?= base_url("js/jscript.js") ?>"></script>
 
 </body>
