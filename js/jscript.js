@@ -115,7 +115,7 @@ $('#btn_buscar').click(function () {
 
         if (dados !== 'vazio') {
             $.each(dados, function (i, item) {
-                html_td = html_td + "<tr><td class='align_td'>" + item.id + "</td>";
+                html_td = html_td + "<tr><td hidden='hidden' class='align_td'>" + item.id + "</td>";
                 html_td = html_td + "<td class='align_td'>" + item.nome + "</td>";
                 html_td = html_td + "<td class='align_td'>" + item.dt_nasc + "</td>";
                 html_td = html_td + "<td class='align_td'>" + item.convenio + "</td></tr>";

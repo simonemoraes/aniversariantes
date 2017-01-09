@@ -49,9 +49,9 @@
                     <table class="table table-bordered" id="tabelaClientes">
                         <thead style="background-color: #f5f5f5;">
                             <tr class="text-center">
-                                <th class="text-center">Id</th>
-                                <th class="text-center">Nome</th>
-                                <th class="text-center">Data de Nascimento</th>
+                                <th class="text-center" hidden='hidden'>Id</th>
+                                <th class="text-center" style="width: 460px;">Nome</th>
+                                <th class="text-center" style="width: 250px;">Data de Nascimento</th>
                                 <th class="text-center">Convenio</th> 
                             </tr>
                         </thead>

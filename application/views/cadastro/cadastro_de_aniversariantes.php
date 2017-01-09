@@ -72,7 +72,7 @@
                     <table class="table table-bordered" id="tabelaClientes">
                         <thead style="background-color: #f5f5f5;">
                             <tr class="text-center">
-                                <th class="text-center">Id</th>
+                                <th class="text-center" hidden='hidden'>Id</th>
                                 <th class="text-center">Nome</th>
                                 <th class="text-center">Data de Nascimento</th>
                                 <th class="text-center">Convenio</th> 
@@ -82,7 +82,7 @@
 
                             <?php if ($aniversariantes == NULL) : ?>
                                 <tr>
-                                    <td id="id"></td>
+                                    <td id="id" hidden='hidden'></td>
                                     <td id="nome"></td>
                                     <td id="dt_nasc"></td>
                                     <td id="convenio"></td>
@@ -90,7 +90,7 @@
                             <?php else : ?>
                                 <?php foreach ($aniversariantes as $value): ?>
                                     <tr>
-                                        <td class="align_td" id="id"><?= $value['id'] ?></td>
+                                        <td class="align_td" id="id" hidden='hidden'><?= $value['id'] ?></td>
                                         <td class="align_td" id="nome"><?= $value['nome'] ?></td>
                                         <td class="align_td" id="dt_nasc"><?= dataMysqlParaPtBr($value['dt_nasc']) ?></td>
                                         <td class="align_td" id="convenio"><?= $value['convenio'] ?></td>
