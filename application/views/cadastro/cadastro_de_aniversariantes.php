@@ -116,8 +116,10 @@
 
 </div>
 
-<script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+<script src="<?= base_url(js/bootstrap.min.js) ?>"></script>
+
 <script src="<?= base_url("js/jquery-1.12.4.min.js") ?>"></script>
+<script src="<?= base_url("js/jquery-1.12.0-ui.js") ?>"></script>
 <script src="<?= base_url("js/jscript.js") ?>"></script>
 
 </body>
