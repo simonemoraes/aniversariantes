@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/aniversariantes/';
+//$config['base_url'] = 'http://www.simone.ruianderson.com.br/aniversariantes';
 
 /*
 |--------------------------------------------------------------------------
