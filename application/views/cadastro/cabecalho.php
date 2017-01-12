@@ -33,8 +33,8 @@
 
                     <ul class="nav navbar-nav">
                         <li><a style="padding-top: 30px;" href="<?= base_url("index.php/") ?>">Pagina Inicial</a></li>
-                        <li><a style="padding-top: 30px;" href="<?= base_url("index.php/cadastroaniversariantes_control/formulario") ?>">Cadastro de Aniversariantes</a></li>
-                        <li><a style="padding-top: 30px;" href="<?= base_url("index.php/cadastroaniversariantes_control/relatorio") ?>">Relatório</a></li>
+                        <li><a style="padding-top: 30px;" href="<?= base_url("index.php/Cadastroaniversariantes/formulario") ?>">Cadastro de Aniversariantes</a></li>
+                        <li><a style="padding-top: 30px;" href="<?= base_url("index.php/Cadastroaniversariantes/relatorio") ?>">Relatório</a></li>
                     </ul>
 
                 </div>

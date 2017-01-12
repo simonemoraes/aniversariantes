@@ -2,11 +2,11 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cadastroaniversariantes_control extends CI_Controller {
+class Cadastroaniversariantes extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('cadastro_de_aniversariantes_model');
+        $this->load->model('Cadastro_de_aniversariantes_model');
     }
 
     public function index() {
@@ -35,7 +35,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
                 "dt_nasc" => $this->input->post('dt_nasc'),
                 "convenio" => $this->input->post('convenio')
             );
-            $retorno = $this->cadastro_de_aniversariantes_model->salvar($dados);
+            $retorno = $this->Cadastro_de_aniversariantes_model->salvar($dados);
         } else {
             $dados = array(
                 "id" => $id,
@@ -43,7 +43,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
                 "dt_nasc" => $this->input->post('dt_nasc'),
                 "convenio" => $this->input->post('convenio')
             );
-            $retorno = $this->cadastro_de_aniversariantes_model->editar($dados);
+            $retorno = $this->Cadastro_de_aniversariantes_model->editar($dados);
         }
         echo $retorno;
     }
@@ -51,7 +51,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
     public function editar() {
         $id = $this->input->post("id");
 
-        $retornaAniversariante = $this->cadastro_de_aniversariantes_model->buscaPorId($id);
+        $retornaAniversariante = $this->Cadastro_de_aniversariantes_model->buscaPorId($id);
 
         $aniversariante = array(
             "id" => $retornaAniversariante->row()->id,
@@ -71,7 +71,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
             "dt_nasc" => $this->input->post('dt_nasc'),
             "convenio" => $this->input->post('convenio')
         );
-        $retorno = $this->cadastro_de_aniversariantes_model->deletar($aniversariante);
+        $retorno = $this->Cadastro_de_aniversariantes_model->deletar($aniversariante);
 
         echo $retorno;
     }
@@ -82,7 +82,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
 
         if ($mes != '0' && $mes != '') {
            
-            $listaAniversariante = $this->cadastro_de_aniversariantes_model->listaMes($mes);
+            $listaAniversariante = $this->Cadastro_de_aniversariantes_model->listaMes($mes);
 
             if ($listaAniversariante != '') {
                 echo json_encode($listaAniversariante);
@@ -100,7 +100,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
     public function teste() {
         $mes = $_POST['mes'];
 
-        $listaAniversariante = $this->cadastro_de_aniversariantes_model->listaMes($mes);
+        $listaAniversariante = $this->Cadastro_de_aniversariantes_model->listaMes($mes);
 
         if ($listaAniversariante != '') {
             echo json_encode($listaAniversariante);
@@ -110,7 +110,7 @@ class Cadastroaniversariantes_control extends CI_Controller {
     }
 
     private function listarTodos() {
-        $retorno = $this->cadastro_de_aniversariantes_model->listaTodos();
+        $retorno = $this->Cadastro_de_aniversariantes_model->listaTodos();
 
         return $retorno;
     }

@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         if (valida()) {
 
-            $.post('http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/salvar', {
+            $.post('/aniversariantes/index.php/Cadastroaniversariantes/salvar', {
                 id: id,
                 nome: $('#id_nome').val(),
                 dt_nasc: $('#id_dt_nasc').val(),
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         if (valida()) {
 
-            $.post('http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/remover', {
+            $.post('/aniversariantes/index.php/Cadastroaniversariantes/remover', {
                 id: id,
                 nome: $('#id_nome').val(),
                 dt_nasc: $('#id_dt_nasc').val(),
@@ -77,7 +77,7 @@ $('#tabelaClientes tbody tr').each(function () {
 
             var id = $(this).find('td[id=id]').text();
 
-            $.post('http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/editar', {
+            $.post('/aniversariantes/index.php/Cadastroaniversariantes/editar', {
                 id: id
             }, function (data, status) {
 
@@ -101,7 +101,7 @@ $('#btn_buscar').click(function () {
 
     console.log(mes);
 
-    var url = 'http://localhost/aniversariantes/index.php/cadastroaniversariantes_control/relatorio';
+    var url = '/aniversariantes/index.php/Cadastroaniversariantes/relatorio';
 
     $.post(url, {
         mes: mes
@@ -117,7 +117,7 @@ $('#btn_buscar').click(function () {
             $.each(dados, function (i, item) {
                 html_td = html_td + "<tr><td hidden='hidden' class='align_td'>" + item.id + "</td>";
                 html_td = html_td + "<td class='align_td'>" + item.nome + "</td>";
-                html_td = html_td + "<td class='align_td'>" + item.dt_nasc + "</td>";
+                html_td = html_td + "<td class='align_td'>" + dataFormatada(item.dt_nasc) + "</td>";
                 html_td = html_td + "<td class='align_td'>" + item.convenio + "</td></tr>";
             });
 
@@ -144,6 +144,14 @@ $('#tabelaClientes tbody tr').hover(
             $(this).removeClass("destaque");
         }
 );
+
+function dataFormatada(d) {
+    var data = new Date(d),
+            dia = data.getDate(),
+            mes = data.getMonth() + 1,
+            ano = data.getFullYear();
+    return [dia, mes, ano].join('/');
+}
 
 /* Função que preenche os campos da tabela */
 function preencheCampos(data) {
